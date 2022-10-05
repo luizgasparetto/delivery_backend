@@ -4,6 +4,9 @@ import 'express-async-errors';
 import cors from "cors";
 import express from "express";
 
+
+import "./core/container";
+
 import { routes } from './core/routes';
 import { ErrorHandler } from './core/errors/ErrorHandler';
 
