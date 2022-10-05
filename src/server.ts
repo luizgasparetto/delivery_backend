@@ -1,6 +1,8 @@
 import 'reflect-metadata';
 import 'express-async-errors';
 
+import 'dotenv/config';
+
 import cors from "cors";
 import express from "express";
 
@@ -18,4 +20,4 @@ app.use(routes);
 
 app.use(AppError.handle);
 
-app.listen(3000, () => console.log("Running on port 3000.."));
+app.listen(process.env.PORT, () => console.log("Server is running..."));
