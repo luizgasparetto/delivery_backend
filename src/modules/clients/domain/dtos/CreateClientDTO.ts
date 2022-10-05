@@ -1,4 +1,4 @@
-export interface CreateClientParams {
+export interface CreateClientDTO {
   username: string;
   password: string;
 }

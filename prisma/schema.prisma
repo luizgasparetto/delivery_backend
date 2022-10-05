@@ -11,6 +11,8 @@ model DeliveryMan {
   id         String       @id @default(uuid())
   username   String       @unique
   password   String
+  created_at DateTime     @default(now())
+  update_at  DateTime     @default(now())
   Deliveries Deliveries[]
 
   @@map("delivery_man")
@@ -21,6 +23,7 @@ model Clients {
   username   String       @unique
   password   String
   created_at DateTime     @default(now())
+  update_at  DateTime     @default(now())
   Deliveries Deliveries[]
 
   @@map("clients")

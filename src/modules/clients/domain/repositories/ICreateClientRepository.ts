@@ -1,7 +1,7 @@
-import { CreateClientParams } from "../params/CreateClientParams";
+import { CreateClientDTO } from "../dtos/CreateClientDTO";
 
 interface IClientRepository {
-  createClient({ username, password }: CreateClientParams): Promise<void>;
+  createClient({ username, password }: CreateClientDTO): Promise<void>;
   clientAlreadyExists(username: string): Promise<boolean>;
 }
 
