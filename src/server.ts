@@ -1,8 +1,8 @@
 import 'reflect-metadata';
-import 'express-async-error';
+import 'express-async-errors';
 
-import express from "express";
 import cors from "cors";
+import express from "express";
 
 import { routes } from './core/routes';
 import { ErrorHandler } from './core/errors/ErrorHandler';
@@ -16,4 +16,4 @@ app.use(routes);
 
 app.use(ErrorHandler.handle);
 
-app.listen(3000, () => console.log("Server is running"));
+app.listen(3000, () => console.log("Running on port 3000.."));

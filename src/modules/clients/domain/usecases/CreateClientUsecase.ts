@@ -15,10 +15,8 @@ export class CreateClientUsecase {
 
     const hashPassword = await hash(password, 10);
 
-    const client = await prisma.clients.create({
+    await prisma.clients.create({
       data: { username, 'password': hashPassword }
     });
-
-    return client;
   }
 }

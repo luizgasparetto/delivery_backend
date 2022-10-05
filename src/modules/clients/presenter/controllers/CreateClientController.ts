@@ -7,8 +7,8 @@ export class CreateClientController {
 
     const createClientUsecase = new CreateClientUsecase();
 
-    const result = await createClientUsecase.execute({ username, password });
+    await createClientUsecase.execute({ username, password });
 
-    return response.status(201).json(result)
+    return response.status(201).json({ message: "User created successfully" })
   }
 }
