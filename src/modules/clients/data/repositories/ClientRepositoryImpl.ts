@@ -1,8 +1,10 @@
 import { CreateClientDTO } from "../../domain/dtos/CreateClientDTO";
 import { IClientRepository } from "../../domain/repositories/ICreateClientRepository";
 
-import { prisma } from "../../../../core/services/database/PrismaClient";
+import { prisma } from "../../../../core/shared/services/database/PrismaClient";
 import { hash } from "bcryptjs";
+import { ClientEntity } from "../../domain/entities/ClientEntity";
+import { ClientEntityAdapter } from "../adapters/ClientEntityAdapter";
 
 
 export class ClientRepositoryImpl implements IClientRepository {
@@ -13,11 +15,11 @@ export class ClientRepositoryImpl implements IClientRepository {
   }
 
 
-  async clientAlreadyExists(username: string): Promise<boolean> {
-    const clientExists = await prisma.clients.findFirst({
+  async getClient(username: string): Promise<ClientEntity> {
+    const client = await prisma.clients.findFirst({
       where: { username: { mode: "insensitive" } }
     })
 
-    return clientExists != null;
+    return ClientEntityAdapter.fromDb(client);
   }
 }
